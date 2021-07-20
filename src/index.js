@@ -3,6 +3,18 @@ import './style.css';
 
 const list = new List();
 
+const dotsIcon = () => {
+  const ul = document.createElement('ul');
+  ul.setAttribute('id', 'dots');
+  let li = document.createElement('li');
+  ul.appendChild(li);
+  li = document.createElement('li');
+  ul.appendChild(li);
+  li = document.createElement('li');
+  ul.appendChild(li);
+  return ul;
+};
+
 const createTaskDiv = (task) => {
   const taskDiv = document.createElement('div');
   taskDiv.setAttribute('class', 'task-div d-flex');
@@ -17,7 +29,7 @@ const createTaskDiv = (task) => {
   delIcon.setAttribute('src', 'https://img.icons8.com/windows/32/000000/trash.png');
   delIcon.setAttribute('id', task.id);
   delIcon.setAttribute('class', 'delete');
-  taskDiv.append(checkTask, taskDesc, delIcon);
+  taskDiv.append(checkTask, taskDesc, delIcon, dotsIcon());
   return taskDiv;
 };
 
