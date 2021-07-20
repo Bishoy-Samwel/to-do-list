@@ -1,5 +1,4 @@
-import _ from 'lodash';
-import List from './list.js';
+import List from './list';
 import './style.css';
 
 const list = new List();
@@ -15,7 +14,7 @@ const createTaskDiv = (task) => {
   taskDesc.setAttribute('class', 'task-desc');
   taskDesc.setAttribute('value', task.desc);
   const delIcon = document.createElement('img');
-  delIcon.setAttribute('src', 'https://img.icons8.com/windows/32/000000/trash.png')
+  delIcon.setAttribute('src', 'https://img.icons8.com/windows/32/000000/trash.png');
   delIcon.setAttribute('id', task.id);
   delIcon.setAttribute('class', 'delete');
   taskDiv.append(checkTask, taskDesc, delIcon);
@@ -23,7 +22,7 @@ const createTaskDiv = (task) => {
 };
 
 const showTasks = (tasks) => {
-  const tasksSection = document.querySelector('#list-tasks')
+  const tasksSection = document.querySelector('#list-tasks');
   const tasksDiv = document.createElement('div');
   tasksDiv.setAttribute('class', 'd-flex');
   tasksDiv.setAttribute('id', 'tasks-div');
