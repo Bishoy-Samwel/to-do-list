@@ -2,7 +2,7 @@ import Task from './task.js';
 
 export default class List {
   constructor() {
-    this.tasks = JSON.parse(localStorage.getItem('tasks')) || List.initialize;
+    this.tasks = JSON.parse(localStorage.getItem('tasks')) || List.initialize();
   }
 
   static initialize() {
