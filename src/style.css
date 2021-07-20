@@ -1,3 +1,114 @@
-.hello {
-  color: red;
+body {
+  background-color: #f6f6f6;
+  font-size: 1.4em;
+}
+
+main {
+  border: 1px solid gainsboro;
+  width: 600px;
+  background-color: #fff;
+  margin: 3% auto;
+  justify-content: start;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.d-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.d-none {
+  display: none;
+}
+
+#tasks-div {
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+}
+
+.task-div {
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid gainsboro;
+}
+
+.done {
+  text-decoration: line-through;
+  color: grey;
+}
+
+#form {
+  justify-content: space-between;
+  align-items: center;
+  margin: 2%;
+}
+
+#form,
+.task-div {
+  padding: 0 3%;
+}
+
+#dots li {
+  background: none repeat scroll 0 0 rgb(173, 173, 173);
+  height: 5px;
+  width: 5px;
+  line-height: 0;
+  list-style: none outside none;
+  margin-right: 15px;
+  margin-top: 2px;
+  vertical-align: top;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+#dots:hover li {
+  background: none repeat scroll 0 0 rgb(66, 66, 66);
+}
+
+#form-desc,
+.task-desc {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  font-size: 1.3rem;
+  width: 100%;
+  margin: 3%;
+  color: darkslategrey;
+  background-color: transparent;
+}
+
+input:focus,
+input:active {
+  border-color: transparent;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  outline: none;
+}
+
+.bg-yellow {
+  background-color: beige;
+}
+
+.bg-red {
+  background-color: lightpink;
+}
+
+#clear-completed {
+  background-color: rgb(231, 231, 231);
+  color: grey;
+}
+
+#clear-completed:hover {
+  text-decoration: underline;
+  color: rgb(58, 58, 58);
+  cursor: pointer;
+}
+
+.delete:hover {
+  cursor: pointer;
 }
