@@ -14,4 +14,3 @@ export default class List {
 }
 
 const list = new List();
-console.log(list.tasks);
