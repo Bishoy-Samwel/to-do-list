@@ -12,5 +12,3 @@ export default class List {
     return [task1, task2, task3];
   }
 }
-
-const list = new List();
