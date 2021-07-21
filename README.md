@@ -26,16 +26,16 @@ A simple TO-Do List built with Webpack. It allows user to add tasks to the list,
 
 ## Getting Started
 
-* Clone this repo <https://github.com/Bishoy-Samwel/awesome-books>
+* Clone this repo <https://github.com/Bishoy-Samwel/to-do-list>
 
     ```bash
-    git clone https://github.com/Bishoy-Samwel/awesome-books.git
+    git clone https://github.com/Bishoy-Samwel/to-do-list.git
     ```
 
 * Navigate to Library folder/directory
 
     ```bash
-    cd awesome-books
+    cd to-do-list
     ```
 
 * On the comandline, at the project's root, run ```npm i``` to install app dependencies
