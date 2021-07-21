@@ -1,6 +1,7 @@
 body {
   background-color: #f6f6f6;
   font-size: 1.4em;
+  margin: 0;
 }
 
 main {
@@ -61,6 +62,7 @@ main {
   vertical-align: top;
   border-radius: 50%;
   pointer-events: none;
+  cursor: move;
 }
 
 #dots:hover li {
@@ -111,4 +113,12 @@ input:active {
 
 .delete:hover {
   cursor: pointer;
+}
+
+.draggable {
+  padding: 1rem;
+}
+
+.draggable.dragging {
+  opacity: 0.5;
 }
