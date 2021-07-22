@@ -1,4 +1,3 @@
-import { indexOf } from 'lodash';
 import Task from './task';
 
 export default class List {
@@ -30,18 +29,16 @@ export default class List {
     const current = this.getTask(parseInt(taskId, 10));
     const next = this.getTask(parseInt(afterId, 10));
     this.tasks.splice(current.index, 1);
-    console.log(next);
     if (next) {
-    const nextIndex = next.index < current.index ? next.index : next.index - 1;
+      const nextIndex = next.index < current.index ? next.index : next.index - 1;
       if (nextIndex > 0) {
-        window.alert(`next value is ${next.desc} and its index is ${next.index}`);
         this.tasks.splice(nextIndex, 0, current);
       } else if (next.index === 0) {
         // down to top edge
         this.tasks.unshift(current);
       }
     } else {
-      window.alert('top to down edge')
+      // top to down edge
       this.tasks.push(current);
     }
     this.tasks.forEach((task) => {
