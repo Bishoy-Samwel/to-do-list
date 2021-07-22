@@ -3,7 +3,7 @@ import Task from './task';
 export default class List {
   constructor() {
     this.orderChanged = false;
-    this.tasks = JSON.parse(localStorage.getItem('tasks')) || List.initialize();
+    this.tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   }
 
   static initialize() {
@@ -25,6 +25,37 @@ export default class List {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
+  updateItemsIndex() {
+    this.tasks.forEach((task) => {
+      task.index = this.tasks.indexOf(task);
+    });
+  }
+
+  addTask(desc) {
+    const task = new Task(desc, this.tasks.length);
+    this.tasks.push(task);
+    this.updateItemsIndex();
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+
+  removeTask(id) {
+    this.tasks = this.tasks.filter((task) => task.id !== id);
+    this.updateItemsIndex();
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+
+  editTask(id, desc) {
+    const task = this.getTask(id);
+    task.desc = desc;
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+
+  clearCompleted() {
+    this.tasks = this.tasks.filter((task) => task.completed !== true);
+    this.updateItemsIndex();
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+
   reorder(taskId, afterId) {
     const current = this.getTask(parseInt(taskId, 10));
     const next = this.getTask(parseInt(afterId, 10));
@@ -41,9 +72,7 @@ export default class List {
       // top to down edge
       this.tasks.push(current);
     }
-    this.tasks.forEach((task) => {
-      task.index = this.tasks.indexOf(task);
-    });
+    this.updateItemsIndex();
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 }
