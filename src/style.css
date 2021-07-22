@@ -121,4 +121,5 @@ input:active {
 
 .draggable.dragging {
   opacity: 0.5;
+  border: 1px solid rgb(68, 68, 245);
 }
