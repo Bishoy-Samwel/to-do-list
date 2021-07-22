@@ -45,6 +45,15 @@ export default class List {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
+
+  editTask(id, desc) {
+    const task = this.getTask(id);
+    task.desc = desc;
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+
+
+
   reorder(taskId, afterId) {
     const current = this.getTask(parseInt(taskId, 10));
     const next = this.getTask(parseInt(afterId, 10));
