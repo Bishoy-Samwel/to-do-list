@@ -19,7 +19,6 @@ const drag = (list) => {
   draggables.forEach((draggable) => {
     draggable.addEventListener('dragstart', () => {
       draggable.classList.add('dragging');
-      // event.dataTransfer.setData("index", elem.index); 
       taskId = draggable.querySelector('.check-task').getAttribute('id');
     });
     draggable.addEventListener('dragend', () => {
