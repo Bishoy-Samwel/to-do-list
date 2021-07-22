@@ -80,6 +80,10 @@ const onClick = (list) => {
       event.target.parentElement.classList.add('bg-red');
     }
   };
+  document.querySelector('p').onclick = () => {
+    list.clearCompleted();
+    window.location.reload(true);
+  };
 };
 
 const createTaskDiv = (list, task) => {
