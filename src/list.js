@@ -31,6 +31,20 @@ export default class List {
     });
   }
 
+
+  addTask(desc) {
+    const task = new Task(desc, this.tasks.length);
+    this.tasks.push(task);
+    this.updateItemsIndex();
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+
+  removeTask(id) {
+    this.tasks = this.tasks.filter((task) => task.id !== id);
+    this.updateItemsIndex();
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+
   reorder(taskId, afterId) {
     const current = this.getTask(parseInt(taskId, 10));
     const next = this.getTask(parseInt(afterId, 10));
