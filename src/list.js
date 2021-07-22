@@ -31,7 +31,6 @@ export default class List {
     });
   }
 
-
   addTask(desc) {
     const task = new Task(desc, this.tasks.length);
     this.tasks.push(task);
@@ -44,7 +43,6 @@ export default class List {
     this.updateItemsIndex();
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
-
 
   editTask(id, desc) {
     const task = this.getTask(id);
