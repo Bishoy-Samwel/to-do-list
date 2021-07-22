@@ -52,7 +52,10 @@ export default class List {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
-
+  clearCompleted() {
+    this.tasks = this.tasks.filter((task) => task.completed !== true);
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
 
   reorder(taskId, afterId) {
     const current = this.getTask(parseInt(taskId, 10));
