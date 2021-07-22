@@ -102,6 +102,23 @@ const createTaskDiv = (task) => {
   return taskDiv;
 };
 
+const clearInputs = () => {
+  document.querySelector('#form-desc').value = '';
+};
+
+const handleEvents = (list) => {
+  document.querySelector('#task-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const desc = document.querySelector('#form-desc').value;
+    if (desc !== '') {
+      list.addTask(desc);
+      // eslint-disable-next-line no-use-before-define
+      showTasks(list.tasks);
+      clearInputs();
+    }
+  });
+};
+
 export default function showTasks(list) {
   onClick(list);
   const tasksSection = document.querySelector('#list-tasks');
@@ -114,4 +131,6 @@ export default function showTasks(list) {
   tasksSection.innerHTML = '';
   tasksSection.appendChild(tasksDiv);
   drag(list);
+  // eslint-disable-next-line no-use-before-define
+  handleEvents(list);
 }
