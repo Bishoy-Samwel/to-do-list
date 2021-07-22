@@ -82,7 +82,7 @@ const onClick = (list) => {
   };
 };
 
-const createTaskDiv = (task) => {
+const createTaskDiv = (list, task) => {
   const taskDiv = document.createElement('div');
   taskDiv.setAttribute('class', 'task-div d-flex draggable');
   taskDiv.setAttribute('draggable', 'true');
@@ -93,6 +93,9 @@ const createTaskDiv = (task) => {
   const taskDesc = document.createElement('input');
   taskDesc.setAttribute('class', 'task-desc');
   taskDesc.setAttribute('value', task.desc);
+  taskDesc.onchange = () => {
+    list.editTask(task.id, taskDesc.value);
+  };
   const delIcon = document.createElement('img');
   delIcon.setAttribute('src', 'https://img.icons8.com/windows/32/000000/trash.png');
   delIcon.setAttribute('id', task.id);
@@ -113,24 +116,24 @@ const handleEvents = (list) => {
     if (desc !== '') {
       list.addTask(desc);
       // eslint-disable-next-line no-use-before-define
-      showTasks(list.tasks);
+      showTasks(list);
       clearInputs();
     }
   });
 };
 
 export default function showTasks(list) {
+  handleEvents(list);
   onClick(list);
   const tasksSection = document.querySelector('#list-tasks');
   const tasksDiv = document.createElement('div');
   tasksDiv.setAttribute('class', 'd-flex container');
   tasksDiv.setAttribute('id', 'tasks-div');
   list.tasks.forEach((task) => {
-    tasksDiv.appendChild(createTaskDiv(task));
+    tasksDiv.appendChild(createTaskDiv(list, task));
   });
   tasksSection.innerHTML = '';
   tasksSection.appendChild(tasksDiv);
   drag(list);
   // eslint-disable-next-line no-use-before-define
-  handleEvents(list);
 }
