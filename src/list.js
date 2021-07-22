@@ -52,6 +52,7 @@ export default class List {
 
   clearCompleted() {
     this.tasks = this.tasks.filter((task) => task.completed !== true);
+    this.updateItemsIndex();
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
