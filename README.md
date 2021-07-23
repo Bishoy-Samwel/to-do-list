@@ -11,9 +11,10 @@
 
 ## About Project
 
-A simple TO-Do List built with Webpack. It allows user to add tasks to the list, remove tasks from the list, edit tasks on the list and remove completed tasks from the list.
+A simple TO-Do List built with Webpack. It allows user to add, remove, sort, edit, and remove completed tasks from the list.
 
-![screenshot](https://user-images.githubusercontent.com/29541335/126761123-4a24ffc0-655f-43e2-8916-cf7cdabf6d54.png)
+![image](https://user-images.githubusercontent.com/29541335/126761565-bc215b40-7b9a-4a87-8001-335b3a3f3795.png)
+
 
 
 ## [Live Demo](https://bishoy-to-do.netlify.app/)
