@@ -5,5 +5,5 @@ class List {
     this.orderChanged = false;
     this.tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   }
-
-// module.exports = List;
+}
+module.exports = List;

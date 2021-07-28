@@ -6,15 +6,6 @@ export default class List {
     this.tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   }
 
-  static initialize() {
-    const task1 = new Task('task 0', 0);
-    const task2 = new Task('task 1', 1);
-    const task3 = new Task('task 2', 2);
-    const task4 = new Task('task 3', 3);
-    const task5 = new Task('task 4', 4);
-    return [task1, task2, task3, task4, task5];
-  }
-
   getTask(id) {
     return this.tasks.find((task) => task.id === id);
   }
