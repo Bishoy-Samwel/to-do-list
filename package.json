@@ -21,6 +21,7 @@
     "csv-loader": "^3.0.3",
     "express": "^4.17.1",
     "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.0.6",
     "style-loader": "^3.1.0",
     "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2",
@@ -46,5 +47,23 @@
   "bugs": {
     "url": "https://github.com/Bishoy-Samwel/to-do-list/issues"
   },
-  "homepage": "https://github.com/Bishoy-Samwel/to-do-list#readme"
+  "homepage": "https://github.com/Bishoy-Samwel/to-do-list#readme",
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "bower_components",
+      "shared"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js",
+      "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
+    }
+  },
+  "scripts": {
+    "test": "jest"
+  }
 }
