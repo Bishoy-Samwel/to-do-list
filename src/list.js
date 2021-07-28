@@ -1,5 +1,7 @@
 import Task from './task';
 
+const {addElement, removeByIndex } = require('./util');
+
 export default class List {
   constructor() {
     this.orderChanged = false;
@@ -18,7 +20,7 @@ export default class List {
 
   updateItemsIndex() {
     this.tasks.forEach((task) => {
-      task.index = this.tasks.indexOf(task);
+      task.id = this.tasks.indexOf(task);
     });
   }
 
@@ -50,12 +52,12 @@ export default class List {
   reorder(taskId, afterId) {
     const current = this.getTask(parseInt(taskId, 10));
     const next = this.getTask(parseInt(afterId, 10));
-    this.tasks.splice(current.index, 1);
+    this.tasks.splice(current.id, 1);
     if (next) {
-      const nextIndex = next.index < current.index ? next.index : next.index - 1;
+      const nextIndex = next.id < current.id ? next.id : next.id - 1;
       if (nextIndex > 0) {
         this.tasks.splice(nextIndex, 0, current);
-      } else if (next.index === 0) {
+      } else if (next.id === 0) {
         // down to top edge
         this.tasks.unshift(current);
       }
@@ -68,4 +70,4 @@ export default class List {
   }
 }
 
-module.exports = List;
+// module.exports = List;
