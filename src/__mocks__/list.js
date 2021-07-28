@@ -1,9 +1,13 @@
-import Task from '../task';
+import Task from './task';
 
-class List {
+export default class List {
   constructor() {
     this.orderChanged = false;
-    this.tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    this.tasks = [];
+  }
+
+  addTask(desc) {
+    const task = new Task(desc, this.tasks.length);
+    this.tasks.push(task);
   }
 }
-module.exports = List;
