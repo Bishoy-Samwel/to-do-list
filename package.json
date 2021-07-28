@@ -52,7 +52,9 @@
   "homepage": "https://github.com/Bishoy-Samwel/to-do-list#readme",
   "jest": {
     "resetMocks": false,
-    "setupFiles": ["jest-localstorage-mock"],
+    "setupFiles": [
+      "jest-localstorage-mock"
+    ],
     "moduleFileExtensions": [
       "js",
       "jsx"
