@@ -63,16 +63,27 @@ describe('Remove the completed tasks', () => {
     const task = myList.tasks[myList.tasks.length - 1];
     myList.toggleStatus(task.id);
     const { tasks } = myList;
-    expect(tasks[tasks.length - 1].completed).toBe('true');
+    expect(tasks[tasks.length - 1].completed).toBe(true);
   });
 
-  // test('The new list has only uncompleted tasks', () => {
-  //   const task = myList.tasks[myList.tasks.length - 1];
-  //   const oldLength = myList.tasks.length;
-  //   myList.toggleStatus(task.id);
-  //   myList.clearCompleted();
-  //   const tasks = JSON.parse(localStorage.getItem('tasks'));
-  //   const newLength = tasks.length;
-  //   expect(newLength + 1).toBe(oldLength);
-  // });
+  test('The new list has only uncompleted tasks', () => {
+    const task = myList.tasks[myList.tasks.length - 1];
+    const oldLength = myList.tasks.length;
+    myList.clearCompleted();
+    const tasks = JSON.parse(localStorage.getItem('tasks'));
+    const newLength = tasks.length;
+    expect(newLength + 1).toBe(oldLength);
+  });
+});
+
+describe('Test reOrderTask', () => {
+  test('it should remove the item from current location,insert to the new location and update the index in this case we will replace item number 1 in the list with item number 4', () => {
+    myList.addTask('finsih testing');
+    myList.addTask('get a job');
+    const taskId = myList.tasks[0].id;
+    const afterId = myList.tasks[3].id;
+    myList.reorder(taskId,afterId);
+    const tasks = JSON.parse(localStorage.getItem('tasks'));
+    expect(tasks[2].desc).toBe('clean');
+  });
 });

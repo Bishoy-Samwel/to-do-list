@@ -36,8 +36,28 @@ export default class List {
   }
 
   toggleStatus(id) {
-    const task = this.tasks.filter((task) => task.id === id);
+    const task = this.tasks.find((task) => task.id === id);
     task.completed = !task.completed;
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+
+  reorder(taskId, afterId) {
+    const current = this.tasks.find((task) => task.id === taskId);
+    const next = this.tasks.find((task) => task.id === afterId);
+    this.tasks.splice(current.index, 1);
+    if (next) {
+      const nextIndex = next.index < current.index ? next.index : next.index - 1;
+      if (nextIndex > 0) {
+        this.tasks.splice(nextIndex, 0, current);
+      } else if (next.index === 0) {
+        // down to top edge
+        this.tasks.unshift(current);
+      }
+    } else {
+      // top to down edge
+      this.tasks.push(current);
+    }
+    this.updateItemsIndex();
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 }
