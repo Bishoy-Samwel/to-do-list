@@ -70,6 +70,7 @@ const onClick = (list) => {
       const { id } = event.target;
       list.removeTask(parseInt(id, 10));
       event.target.parentElement.remove();
+      // removeTaskDiv(list, parseInt(id, 10), event.target.parentElement);
     } else if (event.target.className === 'check-task') {
       const { id } = event.target;
       list.toggleStatus(parseInt(id, 10));
@@ -108,6 +109,12 @@ const createTaskDiv = (list, task) => {
   if (task.completed) { toggleCompletedTask(taskDiv); }
   return taskDiv;
 };
+
+// const removeTaskDiv = (list, id, taskEle) = {
+//   list.removeTask(id);
+
+//   taskEle.remove();
+// }
 
 const clearInputs = () => {
   document.querySelector('#form-desc').value = '';
