@@ -16,6 +16,7 @@ const createTaskDiv = (dom, list, task) => {
   delIcon.setAttribute('src', 'https://img.icons8.com/windows/32/000000/trash.png');
   delIcon.setAttribute('id', task.id);
   delIcon.setAttribute('class', 'delete');
+  // eslint-disable-next-line no-use-before-define
   taskDiv.append(checkTask, taskDesc, delIcon, dotsIcon());
   taskDiv.append(checkTask, taskDesc, delIcon);
   // eslint-disable-next-line no-use-before-define
