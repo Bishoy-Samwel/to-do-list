@@ -1,0 +1,84 @@
+Arguments: 
+  /usr/bin/node /usr/bin/yarn add --dev identity-obj-proxy
+
+PATH: 
+  /home/bishoy/.rbenv/plugins/ruby-build/bin:/home/bishoy/.rbenv/shims:/home/bishoy/.rbenv/bin:/home/bishoy/.rbenv/plugins/ruby-build/bin:/home/bishoy/.rbenv/shims:/home/bishoy/.rbenv/bin:/home/bishoy/.local/bin:/home/bishoy/bin:/usr/lib64/ccache:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/var/lib/snapd/snap/bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  14.17.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, scandir '/run/media/bishoy/Transcend/_Data/Workspaces/Microverse/0My Projects/JS/1 to-do-list/node_modules/@bcoe'
+
+npm manifest: 
+  {
+    "name": "to-do-list",
+    "version": "1.0.0",
+    "description": "",
+    "private": true,
+    "dependencies": {
+      "babel-eslint": "^10.1.0",
+      "eslint": "^7.31.0",
+      "eslint-config-airbnb-base": "^14.2.1",
+      "eslint-plugin-import": "^2.23.4",
+      "gh-pages": "^3.2.3",
+      "hint": "^6.1.4",
+      "lodash": "^4.17.21",
+      "stylelint": "^13.13.1",
+      "stylelint-config-standard": "^21.0.0",
+      "stylelint-csstree-validator": "^1.9.0",
+      "stylelint-scss": "^3.20.1"
+    },
+    "devDependencies": {
+      "css-loader": "^6.2.0",
+      "csv-loader": "^3.0.3",
+      "express": "^4.17.1",
+      "html-webpack-plugin": "^5.3.2",
+      "style-loader": "^3.1.0",
+      "webpack": "^5.45.1",
+      "webpack-cli": "^4.7.2",
+      "webpack-dev-middleware": "^5.0.0",
+      "webpack-dev-server": "^3.11.2",
+      "xml-loader": "^1.2.1"
+    },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "watch": "webpack --watch",
+      "start": "webpack serve --open",
+      "server": "node server.js",
+      "build": "webpack",
+      "deploy": "gh-pages -d dist"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Bishoy-Samwel/to-do-list.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/Bishoy-Samwel/to-do-list/issues"
+    },
+    "homepage": "https://github.com/Bishoy-Samwel/to-do-list#readme",
+    "jest": {
+      "moduleFileExtensions": ["js", "jsx"],
+      "moduleDirectories": ["node_modules", "bower_components", "shared"],
+  
+      "moduleNameMapper": {
+        "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js",
+        "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
+      }
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
