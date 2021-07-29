@@ -23,4 +23,10 @@ export default class List {
     this.tasks = this.tasks.filter((task) => task.id !== id);
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
+
+  editTask(id, desc) {
+    const task = this.tasks.find((task) => task.id === id);
+    task.desc = desc;
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
 }

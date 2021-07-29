@@ -22,7 +22,7 @@ describe('test the addTask function', () => {
   });
 });
 
-describe('test the removeTaks function', () => {
+describe('test the removeTask function', () => {
   test('should remove a task', () => {
     const { id } = myList.tasks[myList.tasks.length - 1];
     myList.removeTask(id);
@@ -46,4 +46,14 @@ test('returns a div with the task', () => {
   const dom = new JSDOM('<body></body>');
   const task = createTaskDiv(dom, myList, tasks[0]);
   expect(task.querySelector('.task-desc').value).toBe('clean');
+});
+
+describe('test the editTask function', () => {
+  test('edit the description of the task', () => {
+    const { id } = myList.tasks[myList.tasks.length - 1];
+    myList.editTask(id, 'prepare food');
+    const tasks = JSON.parse(localStorage.getItem('tasks'));
+    const { desc } = tasks[tasks.length - 1];
+    expect(desc).toBe('prepare food');
+  });
 });
