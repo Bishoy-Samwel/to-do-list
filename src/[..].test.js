@@ -1,32 +1,32 @@
-const jsdom = require("jsdom");
+import createTaskDiv from './__mocks__/ui';
+import List from './list';
+
+const jsdom = require('jsdom');
 
 const { JSDOM } = jsdom;
-import createTaskDiv from './__mocks__/ui'
-import List from './list';
 jest.mock('./list');
 jest.mock('./ui');
 
-jest.mock('./ui');
 const myList = new List();
 describe('test the addTask function', () => {
   test('should add a task', () => {
     myList.addTask('clean');
-    const tasks = myList.tasks = JSON.parse(localStorage.getItem('tasks'));
+    const tasks = JSON.parse(localStorage.getItem('tasks'));
     expect(tasks[0].desc).toBe('clean');
   });
 
   test('should update the tasks description', () => {
     myList.addTask('wash car');
-    const tasks = myList.tasks = JSON.parse(localStorage.getItem('tasks'));
+    const tasks = JSON.parse(localStorage.getItem('tasks'));
     expect(tasks[1].desc).toBe('wash car');
   });
 });
 
 describe('test the removeTaks function', () => {
   test('should remove a task', () => {
-    const id = myList.tasks[myList.tasks.length - 1].id;
+    const { id } = myList.tasks[myList.tasks.length - 1];
     myList.removeTask(id);
-    const tasks = myList.tasks = JSON.parse(localStorage.getItem('tasks'));
+    const tasks = JSON.parse(localStorage.getItem('tasks'));
     expect(tasks.length).toBe(1);
   });
 });
@@ -41,20 +41,12 @@ describe('test the updateItemsIndex function', () => {
   });
 });
 
-
 test('returns a div with the task', () => {
-
-  const tasks = myList.tasks = JSON.parse(localStorage.getItem('tasks'));
-  const dom = new JSDOM(`<body></body>`);
-  const taskDiv = createTaskDiv(dom ,myList ,tasks[0]);
+  const tasks = JSON.parse(localStorage.getItem('tasks'));
+  const dom = new JSDOM('<body></body>');
+  const taskDiv = createTaskDiv(dom, myList, tasks[0]);
   console.log(taskDiv);
 });
-
-
-
-
-
-
 
 // const createTaskDiv = (list, task) => {
 //   const taskDiv = document.createElement('div');
