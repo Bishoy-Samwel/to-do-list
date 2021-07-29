@@ -67,5 +67,3 @@ export default class List {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 }
-
-module.exports = List;
