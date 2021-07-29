@@ -24,5 +24,4 @@ const createTaskDiv = (dom, list, task) => {
   return taskDiv;
 };
 
-
 export default createTaskDiv;
