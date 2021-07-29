@@ -1,4 +1,5 @@
-import createTaskDiv from './__mocks__/ui';
+import {createTaskDiv,showTasks} from './__mocks__/ui';
+
 import List from './list';
 
 const jsdom = require('jsdom');
@@ -85,5 +86,24 @@ describe('Test reOrderTask', () => {
     myList.reorder(taskId,afterId);
     const tasks = JSON.parse(localStorage.getItem('tasks'));
     expect(tasks[2].desc).toBe('clean');
+  });
+});
+
+
+// describe('Test showTasks', () => {
+//   test('it should receive a list and append it to the dom', () => {
+//     const dom = new JSDOM('<body><div id="list-tasks"></div></body>');
+//     showTasks(dom, myList);
+//     console.log(dom.window.document.body.innerHTML);
+// });
+// });
+
+
+describe('Test reOrderTask', () => {
+  test('it should remove the item from current location,insert to the new location and update the index in this case we will replace item number 1 in the list with item number 4', () => {
+    const dom = new JSDOM('<body><div id="list-tasks"></div></body>');
+    console.log(dom.window.document.body.innerHTML);
+    showTasks(dom, myList);
+    console.log(dom.window.document.body.innerHTML);
   });
 });

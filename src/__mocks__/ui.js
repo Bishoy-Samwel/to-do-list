@@ -24,4 +24,17 @@ const createTaskDiv = (dom, list, task) => {
   return taskDiv;
 };
 
-export default createTaskDiv;
+function showTasks(dom, list) {
+  const tasksSection = dom.window.document.querySelector('#list-tasks');
+  const tasksDiv = dom.window.document.createElement('div');
+  tasksDiv.setAttribute('class', 'd-flex container');
+  tasksDiv.setAttribute('id', 'tasks-div');
+  list.tasks.forEach((task) => {
+    tasksDiv.appendChild(createTaskDiv(list, task));
+  });
+  tasksSection.innerHTML = '';
+  tasksSection.appendChild(tasksDiv);
+  // eslint-disable-next-line no-use-before-define
+}
+
+export { createTaskDiv, showTasks };
