@@ -1,6 +1,6 @@
 import Task from './task';
 
-const {addElement, removeByIndex } = require('./util');
+const {addElement, removeByAttr } = require('./util');
 
 export default class List {
   constructor() {
@@ -20,19 +20,19 @@ export default class List {
 
   updateItemsIndex() {
     this.tasks.forEach((task) => {
-      task.id = this.tasks.indexOf(task);
+      task.index = this.tasks.indexOf(task);
     });
   }
 
   addTask(desc) {
     const task = new Task(desc, this.tasks.length);
-    this.tasks.push(task);
+    addElement(this.tasks, task);
     this.updateItemsIndex();
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
   removeTask(id) {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
+    this.tasks = removeByAttr(this.tasks, 'id', id);
     this.updateItemsIndex();
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
@@ -52,12 +52,12 @@ export default class List {
   reorder(taskId, afterId) {
     const current = this.getTask(parseInt(taskId, 10));
     const next = this.getTask(parseInt(afterId, 10));
-    this.tasks.splice(current.id, 1);
+    this.tasks.splice(current.index, 1);
     if (next) {
-      const nextIndex = next.id < current.id ? next.id : next.id - 1;
+      const nextIndex = next.index < current.index ? next.index : next.index - 1;
       if (nextIndex > 0) {
         this.tasks.splice(nextIndex, 0, current);
-      } else if (next.id === 0) {
+      } else if (next.index === 0) {
         // down to top edge
         this.tasks.unshift(current);
       }
@@ -69,5 +69,3 @@ export default class List {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 }
-
-// module.exports = List;
