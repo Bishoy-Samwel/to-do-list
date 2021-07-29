@@ -67,7 +67,6 @@ describe('Remove the completed tasks', () => {
   });
 
   test('The new list has only uncompleted tasks', () => {
-    const task = myList.tasks[myList.tasks.length - 1];
     const oldLength = myList.tasks.length;
     myList.clearCompleted();
     const tasks = JSON.parse(localStorage.getItem('tasks'));
@@ -82,7 +81,7 @@ describe('Test reOrderTask', () => {
     myList.addTask('get a job');
     const taskId = myList.tasks[0].id;
     const afterId = myList.tasks[3].id;
-    myList.reorder(taskId,afterId);
+    myList.reorder(taskId, afterId);
     const tasks = JSON.parse(localStorage.getItem('tasks'));
     expect(tasks[2].desc).toBe('clean');
   });
