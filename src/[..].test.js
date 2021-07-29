@@ -44,9 +44,21 @@ describe('test the updateItemsIndex function', () => {
 test('returns a div with the task', () => {
   const tasks = JSON.parse(localStorage.getItem('tasks'));
   const dom = new JSDOM('<body></body>');
-  const taskDiv = createTaskDiv(dom, myList, tasks[0]);
-  console.log(taskDiv);
+  const task = createTaskDiv(dom, myList, tasks[0]);
+  expect(task.querySelector('.task-desc').value).toBe('clean');
 });
+
+// test('Add one new item to the list', () => {
+//     document.body.innerHTML =
+//     '<div>' +
+//     '  <ul id="list"></li>' +
+//     '</div>';
+//     addItem();
+//     const list = document.querySelectorAll('#list li');
+//     expect(list).toHaveLength(1);
+// });
+
+
 
 // const createTaskDiv = (list, task) => {
 //   const taskDiv = document.createElement('div');
