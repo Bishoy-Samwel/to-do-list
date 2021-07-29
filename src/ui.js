@@ -110,12 +110,6 @@ const createTaskDiv = (list, task) => {
   return taskDiv;
 };
 
-// const removeTaskDiv = (list, id, taskEle) = {
-//   list.removeTask(id);
-
-//   taskEle.remove();
-// }
-
 const clearInputs = () => {
   document.querySelector('#form-desc').value = '';
 };
