@@ -57,3 +57,22 @@ describe('test the editTask function', () => {
     expect(desc).toBe('prepare food');
   });
 });
+
+describe('Remove the completed tasks', () => {
+  test('Change the status of tasks', () => {
+    const task = myList.tasks[myList.tasks.length - 1];
+    myList.toggleStatus(task.id);
+    const { tasks } = myList;
+    expect(tasks[tasks.length - 1].completed).toBe('true');
+  });
+
+  // test('The new list has only uncompleted tasks', () => {
+  //   const task = myList.tasks[myList.tasks.length - 1];
+  //   const oldLength = myList.tasks.length;
+  //   myList.toggleStatus(task.id);
+  //   myList.clearCompleted();
+  //   const tasks = JSON.parse(localStorage.getItem('tasks'));
+  //   const newLength = tasks.length;
+  //   expect(newLength + 1).toBe(oldLength);
+  // });
+});

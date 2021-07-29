@@ -12,7 +12,6 @@ export default class List {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
-  // used by the original add task
   updateItemsIndex() {
     this.tasks.forEach((task) => {
       task.index = this.tasks.indexOf(task);
@@ -27,6 +26,18 @@ export default class List {
   editTask(id, desc) {
     const task = this.tasks.find((task) => task.id === id);
     task.desc = desc;
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+
+  clearCompleted() {
+    this.tasks = this.tasks.filter((task) => task.completed !== true);
+    this.updateItemsIndex();
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+
+  toggleStatus(id) {
+    const task = this.tasks.filter((task) => task.id === id);
+    task.completed = !task.completed;
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 }
