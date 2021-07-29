@@ -17,8 +17,21 @@ const createTaskDiv = (dom, list, task) => {
   delIcon.setAttribute('id', task.id);
   delIcon.setAttribute('class', 'delete');
   taskDiv.append(checkTask, taskDesc, delIcon, dotsIcon());
-  if (task.completed) { toggleCompletedTask(taskDiv); }
+  taskDiv.append(checkTask, taskDesc, delIcon);
+  // eslint-disable-next-line no-use-before-define
+  // if (task.completed) { toggleCompletedTask(taskDiv); }
   return taskDiv;
 };
 
+const dotsIcon = () => {
+  const ul = document.createElement('ul');
+  ul.setAttribute('id', 'dots');
+  let li = document.createElement('li');
+  ul.appendChild(li);
+  li = document.createElement('li');
+  ul.appendChild(li);
+  li = document.createElement('li');
+  ul.appendChild(li);
+  return ul;
+};
 export default createTaskDiv;
