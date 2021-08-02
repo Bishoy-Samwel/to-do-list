@@ -17,7 +17,7 @@ A simple TO-Do List built with Webpack. It allows user to add, remove, sort, edi
 
 
 
-## [Live Demo](https://bishoy-to-do.netlify.app/)
+## [Live Demo](https://bishoy-samwel.github.io/to-do-list/)
 
 ## Built With
 
